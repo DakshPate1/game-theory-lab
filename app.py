@@ -730,11 +730,11 @@ weight to the better action.
     with st.expander("5 · Nash Equilibrium"):
         st.markdown("""
 A [**Nash equilibrium**](https://en.wikipedia.org/wiki/Nash_equilibrium) is a pair of mixed
-strategies $(x^\\ast, y^\\ast)$ such that neither player can increase their expected payoff by
+strategies $(x^\\star, y^\\star)$ such that neither player can increase their expected payoff by
 deviating unilaterally:
 
-$$x^\\ast \\in \\arg\\max_{x \\in \\Delta} \\; x^\\top A y^\\ast \\qquad \\text{and} \\qquad
-y^\\ast \\in \\arg\\max_{y \\in \\Delta} \\; y^\\top B^\\top x^\\ast$$
+$$x^\\star \\in \\arg\\max_{x \\in \\Delta} \\; x^\\top A y^\\star \\qquad \\text{and} \\qquad
+y^\\star \\in \\arg\\max_{y \\in \\Delta} \\; y^\\top B^\\top x^\\star$$
 
 Each player is playing a best response to the other. No one has an incentive to change.
 
@@ -743,9 +743,9 @@ guarantees that every finite game has at least one Nash equilibrium in mixed str
 proven via Kakutani's fixed point theorem applied to the best-response correspondence.
 
 **Zero-sum games: Minimax Theorem.** Von Neumann (1928) showed:
-$$\\max_{x \\in \\Delta} \\min_{y \\in \\Delta} x^\\top A y \\;=\\; \\min_{y \\in \\Delta} \\max_{x \\in \\Delta} x^\\top A y \\;=\\; V^\\ast$$
+$$\\max_{x \\in \\Delta} \\min_{y \\in \\Delta} x^\\top A y \\;=\\; \\min_{y \\in \\Delta} \\max_{x \\in \\Delta} x^\\top A y \\;=\\; V^\\star$$
 
-$V^\\ast$ is the **game value** — the expected payoff P1 can guarantee regardless of P2's strategy.
+$V^\\star$ is the **game value** — the expected payoff P1 can guarantee regardless of P2's strategy.
 The Nash equilibrium strategies are exactly the minimax/maximin strategies.
 
 **Computing Nash.** For zero-sum games: a
@@ -755,7 +755,7 @@ support enumeration — both are in PPAD (not known to be polynomial in the wors
 
 **Uniqueness.** Nash equilibria are not unique in general. Prisoner's Dilemma has one (Defect,
 Defect). Battle of the Sexes has three (two pure, one mixed). For zero-sum games the Nash strategies
-may differ but all share the same game value $V^\\ast$.
+may differ but all share the same game value $V^\\star$.
 """)
 
     with st.expander("6 · Why Do Algorithms Exist? The Online Learning Framing"):
@@ -828,9 +828,9 @@ $(R_1(T) + R_2(T)) / T$, so as both players' regret drops, the Nash gap shrinks 
 strategy can be taken advantage of by an optimal opponent.
 
 For a single player with mixed strategy $x$, exploitability is:
-$$\\text{Exploit}_1(x) = \\max_{i} (Ay^\\ast)_i - x^\\top A y^\\ast$$
+$$\\text{Exploit}_1(x) = \\max_{i} (Ay^\\star)_i - x^\\top A y^\\star$$
 
-In practice (without knowing $y^\\ast$), we compute it differently: given the opponent's
+In practice (without knowing $y^\\star$), we compute it differently: given the opponent's
 *current* strategy $y$, how much can a best-responding P1 gain beyond what $x$ achieves?
 
 $$\\text{Exploit}_1(x, y) = \\max_i (Ay)_i - x^\\top A y$$
@@ -920,7 +920,7 @@ projected gradient descent. The regulariser is a design choice.
 
 Takes a gradient step in a *dual space* and maps back to the simplex via a mirror map $\\Phi$:
 $$\\theta^{t+1} = \\theta^t + \\eta \\ell^t \\quad \\text{(dual step)}, \\qquad
-x^{t+1} = \\nabla \\Phi^\\ast(\\theta^{t+1}) \\quad \\text{(primal recovery)}$$
+x^{t+1} = \\nabla \\Phi^\\star(\\theta^{t+1}) \\quad \\text{(primal recovery)}$$
 
 With entropic mirror map → Hedge. With Euclidean mirror map → projected gradient. Same regret
 bounds as FTRL; different derivation.
@@ -1096,8 +1096,8 @@ one at a time with possible information asymmetry.
 **Fictitious Play** — A learning algorithm that best-responds to the opponent's empirical
 frequency. Converges in time-average for zero-sum games; not a regret minimiser.
 
-**Game value** ($V^\\ast$) — In a zero-sum game: the expected payoff at Nash equilibrium. P1
-can guarantee at least $V^\\ast$; P2 can hold P1 to at most $V^\\ast$.
+**Game value** ($V^\\star$) — In a zero-sum game: the expected payoff at Nash equilibrium. P1
+can guarantee at least $V^\\star$; P2 can hold P1 to at most $V^\\star$.
 
 **Hedge / MWU** — Multiplicative Weights Update. The canonical no-regret algorithm for the
 simplex. Identical to entropic OMD and FTRL with entropy regulariser.
@@ -1109,7 +1109,7 @@ gained?" Minimising internal regret leads to correlated equilibrium.
 information. Optimal value: $\\eta = \\sqrt{\\ln n / T}$.
 
 **Minimax theorem** — Von Neumann (1928): in any finite two-player zero-sum game,
-$\\max_x \\min_y x^\\top A y = \\min_y \\max_x x^\\top A y = V^\\ast$.
+$\\max_x \\min_y x^\\top A y = \\min_y \\max_x x^\\top A y = V^\\star$.
 
 **Mixed strategy** — A probability distribution $x \\in \\Delta$ over actions.
 
@@ -1141,8 +1141,8 @@ $\\Delta = \\{x \\in \\mathbb{R}^n : x_i \\geq 0, \\sum_i x_i = 1\\}$.
 
 **Regret bound** — A worst-case upper bound on regret: Hedge achieves $R_T \\leq 2\\sqrt{T \\ln n}$.
 
-**Saddle point** — A strategy pair $(x^\\ast, y^\\ast)$ satisfying
-$x^\\top A y^\\ast \\leq (x^\\ast)^\\top A y^\\ast \\leq (x^\\ast)^\\top A y$ for all $x, y$.
+**Saddle point** — A strategy pair $(x^\\star, y^\\star)$ satisfying
+$x^\\top A y^\\star \\leq (x^\\star)^\\top A y^\\star \\leq (x^\\star)^\\top A y$ for all $x, y$.
 In zero-sum games, saddle points = Nash equilibria.
 
 **Stackelberg adversary** — An opponent who observes your mixed strategy before choosing. The
