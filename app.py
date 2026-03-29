@@ -730,11 +730,11 @@ weight to the better action.
     with st.expander("5 · Nash Equilibrium"):
         st.markdown("""
 A [**Nash equilibrium**](https://en.wikipedia.org/wiki/Nash_equilibrium) is a pair of mixed
-strategies $(x^\\star, y^\\star)$ such that neither player can increase their expected payoff by
+strategies (x⋆, y⋆) such that neither player can increase their expected payoff by
 deviating unilaterally:
 
-$$x^\\star \\in \\arg\\max_{x \\in \\Delta} \\; x^\\top A y^\\star \\qquad \\text{and} \\qquad
-y^\\star \\in \\arg\\max_{y \\in \\Delta} \\; y^\\top B^\\top x^\\star$$
+$$x^\\star \\in \\arg\\max_{x \\in \\Delta} x^\\top A y^\\star$$
+$$y^\\star \\in \\arg\\max_{y \\in \\Delta} y^\\top B^\\top x^\\star$$
 
 Each player is playing a best response to the other. No one has an incentive to change.
 
@@ -918,9 +918,10 @@ projected gradient descent. The regulariser is a design choice.
 **OMD — Online Mirror Descent**
 [Wikipedia](https://en.wikipedia.org/wiki/Mirror_descent)
 
-Takes a gradient step in a *dual space* and maps back to the simplex via a mirror map $\\Phi$:
-$$\\theta^{t+1} = \\theta^t + \\eta \\ell^t \\quad \\text{(dual step)}, \\qquad
-x^{t+1} = \\nabla \\Phi^\\star(\\theta^{t+1}) \\quad \\text{(primal recovery)}$$
+Takes a gradient step in a *dual space* and maps back to the simplex via a mirror map Φ:
+
+$$\\theta^{t+1} = \\theta^t + \\eta \\ell^t \\qquad \\text{(dual step)}$$
+$$x^{t+1} = \\nabla \\Phi^\\star(\\theta^{t+1}) \\qquad \\text{(primal recovery)}$$
 
 With entropic mirror map → Hedge. With Euclidean mirror map → projected gradient. Same regret
 bounds as FTRL; different derivation.
