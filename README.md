@@ -42,7 +42,7 @@ Why mix? Because pure strategies are predictable and exploitable. In RPS, always
 
 [von Neumann's Minimax Theorem (1928)](https://en.wikipedia.org/wiki/Minimax_theorem) states that in any finite two-player zero-sum game:
 
-$$\max_{x \in \Delta} \min_{y \in \Delta} \; x^\top A y \;\;=\;\; \min_{y \in \Delta} \max_{x \in \Delta} \; x^\top A y \;\;=\;\; V^*$$
+$$\max_{x \in \Delta} \min_{y \in \Delta} \; x^\top A y \;\;=\;\; \min_{y \in \Delta} \max_{x \in \Delta} \; x^\top A y \;\;=\;\; V^{\ast}$$
 
 The shared value `V*` is the **game value**: the expected payoff P1 can guarantee regardless of P2's strategy, and the maximum P2 can hold P1 to.
 
@@ -52,11 +52,11 @@ The shared value `V*` is the **game value**: the expected payoff P1 can guarante
 
 ### 4 · Nash Equilibrium
 
-A [Nash equilibrium](https://en.wikipedia.org/wiki/Nash_equilibrium) is a pair of strategies $(x^{*}, y^{*})$ where neither player can improve by deviating unilaterally.
+A [Nash equilibrium](https://en.wikipedia.org/wiki/Nash_equilibrium) is a pair of strategies $(x^{\ast}, y^{\ast})$ where neither player can improve by deviating unilaterally.
 
 $$
-x^{*} \in \arg\max_{x} \; x^\top A y^{*}, \qquad
-y^{*} \in \arg\min_{y} \; (x^{*})^\top A y
+x^{\ast} \in \arg\max_{x} \; x^\top A y^{\ast}, \qquad
+y^{\ast} \in \arg\min_{y} \; (x^{\ast})^\top A y
 $$
 
 For zero-sum games, Nash equilibria always exist (minimax theorem), are unique in game value, and can be computed by [linear programming](https://en.wikipedia.org/wiki/Linear_programming).
