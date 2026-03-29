@@ -55,10 +55,9 @@ The shared value `V*` is the **game value**: the expected payoff P1 can guarante
 A [Nash equilibrium](https://en.wikipedia.org/wiki/Nash_equilibrium) is a pair of strategies $(x^{*}, y^{*})$ where neither player can improve by deviating unilaterally.
 
 $$
-x^{*} \in \arg\max_x \; x^\top A y^{*}, \qquad
-y^{*} \in \arg\min_y \; (x^{*})^\top A y
+x^{*} \in \arg\max_{x} \; x^\top A y^{*}, \qquad
+y^{*} \in \arg\min_{y} \; (x^{*})^\top A y
 $$
-
 
 For zero-sum games, Nash equilibria always exist (minimax theorem), are unique in game value, and can be computed by [linear programming](https://en.wikipedia.org/wiki/Linear_programming).
 
